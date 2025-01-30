@@ -1,8 +1,8 @@
 import os
 import datetime
 
-# Path to your local git repository
-repo_path = "C:\Projects\Gitto"
+# Get the current working directory where the repository is checked out
+repo_path = os.getcwd()  # This will automatically point to the repo directory
 readme_file = os.path.join(repo_path, "README.md")
 
 # Example predefined tech hacks
@@ -213,6 +213,7 @@ tech_hacks = [
     "Press Ctrl + Shift + L to lock your system in Windows.",
     "Use Win + I to open the Settings on Windows.",
     "Press Ctrl + N to open a new window in most browsers.",
+
 ]
 
 # Get today's date
@@ -242,3 +243,4 @@ os.chdir(repo_path)
 os.system("git add README.md")
 os.system(f"git commit -m 'Update README with tech hack for {today}'")
 os.system("git push origin main")
+
