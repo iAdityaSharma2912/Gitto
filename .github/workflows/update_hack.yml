@@ -1,0 +1,25 @@
+name: Update Daily Tech Hack
+
+on:
+  schedule:
+    - cron: '0 20 * * *'  # This will run at 8 PM UTC every day
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install requests  # Install any other dependencies if needed
+
+      - name: Run Python script to update README
+        run: |
+          python3 update_readme.py
