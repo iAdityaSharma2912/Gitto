@@ -1,0 +1,132 @@
+---
+
+# **Gitto - Daily Tech Hack Repository**
+
+## **Project Overview**
+
+**Gitto** is a GitHub repository that automatically updates the `README.md` file with a new tech hack every day. The tech hack will be displayed at the top of the file, and all previous tech hacks will be stored in a table below. This project is designed to increase your GitHub contributions, share valuable tech tips, and help developers enhance their productivity.
+
+### **Features:**
+- **Automatic Updates**: A new tech hack is automatically posted to the `README.md` file every day.
+- **Tech Hack Table**: Keeps a history of all previous tech hacks in a table format.
+- **GitHub Actions**: Uses GitHub Actions to schedule and automate the process, so you don’t need to keep your system running.
+- **Version Control**: Uses Git to track changes to the repository.
+
+### **Goal:**
+The goal of this project is to share a useful tech hack daily, automating the process of updating the `README.md` file using Python and GitHub Actions. It’s a great way to increase contributions to your GitHub profile while providing value to the developer community.
+
+---
+
+## **System Requirements**
+
+Before setting up this project, ensure you have the following:
+
+### **1. GitHub Account**
+- A GitHub account is required to create and host the repository.
+  
+### **2. Python**
+- Python 3.x installed on your system to run the script locally (not necessary for GitHub Actions).
+  
+### **3. Git**
+- Git is required to version control the repository and push changes to GitHub.
+
+### **4. GitHub Actions**
+- GitHub Actions is a cloud-based service provided by GitHub that automates the execution of tasks like updating the README daily.
+
+---
+
+## **Installation & Setup**
+
+### **1. Clone the Repository**
+Clone the repository to your local machine using the following command:
+
+```bash
+git clone https://github.com/yourusername/Gitto.git
+```
+
+### **2. Add Python Script**
+- Add the Python script `update_readme.py` to the root directory of the repository.
+
+### **3. Add GitHub Actions Workflow**
+- Create the GitHub Actions workflow file `.github/workflows/update_hack.yml` in your repository to schedule the script execution every day.
+
+### **4. Modify the Script (Optional)**
+- Update the Python script to include your own tech hacks if desired, or modify the logic for fetching hacks from an API or database.
+
+### **5. Push to GitHub**
+Push the changes (Python script, workflow file) to your GitHub repository:
+
+```bash
+git add update_readme.py .github/workflows/update_hack.yml
+git commit -m "Add Python script and GitHub Actions workflow"
+git push origin main
+```
+
+### **6. Verify the Workflow**
+After pushing the changes, verify the workflow’s execution:
+- Go to the **Actions** tab in your GitHub repository.
+- Check the workflow runs for success or failure.
+- The `README.md` file should update automatically at the specified time (6 PM UTC).
+
+---
+
+## **How It Works**
+
+### **1. Python Script (`update_readme.py`)**
+- This Python script handles the updating of the `README.md` file. It adds a new tech hack at the top and moves older hacks to a table below.
+- The script also commits and pushes the updated `README.md` file back to the repository using Git commands.
+
+### **2. GitHub Actions Workflow (`update_hack.yml`)**
+- The GitHub Actions workflow automates the execution of the Python script.
+- The `update_hack.yml` file is configured to trigger every day at 6 PM UTC (using a cron job).
+- When triggered, it checks out the repository, installs Python dependencies, runs the script, and pushes the changes back to the repository.
+
+### **3. Directory Structure**
+Here’s a breakdown of the directory structure for this project:
+
+```bash
+/Gitto
+  ├── .github/
+  │    └── workflows/
+  │         └── update_hack.yml   # GitHub Actions workflow file
+  ├── update_readme.py             # Python script to update README
+  ├── README.md                   # Main README file with tech hacks
+  ├── .git/                        # Git folder, automatically created by Git
+  └── other files...
+```
+
+---
+
+## **Usage**
+
+Once the repository is set up and everything is in place:
+
+- **Automatic Updates**: The tech hack will be updated in the `README.md` file daily at 6 PM UTC.
+- **Viewing the README**: Open the repository on GitHub, and the updated `README.md` will reflect the latest tech hack at the top.
+- **Contribution**: You can modify the tech hacks or contribute by submitting pull requests to the repository.
+
+---
+
+## **Troubleshooting**
+
+- **GitHub Actions Not Running**:
+  - Ensure that GitHub Actions is enabled for your repository.
+  - Check the `Actions` tab for any errors related to the script execution.
+  - Make sure your cron expression is valid in `update_hack.yml`.
+  
+- **Python Script Not Updating README**:
+  - Check if the script has the correct permissions to modify the `README.md` file.
+  - Make sure the Git commit commands in the script are correct (`git add`, `git commit`, `git push`).
+
+- **Incorrect Date/Time**:
+  - GitHub Actions uses UTC time. If you’re in a different timezone, make sure to adjust the cron expression accordingly.
+
+---
+
+## **License**
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+This documentation provides all the details for setting up and running the **Gitto** project, automating daily tech hack updates with GitHub Actions and Python. It’s a simple and effective way to share useful tips with the community while boosting your GitHub contributions.
+
